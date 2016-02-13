@@ -15,6 +15,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        applicationVariants.all { variant ->
+            variant.buildConfigField "String", "MOVIE_DB_API_KEY", "\"" + getApiKey() + "\""
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -30,4 +33,14 @@ dependencies {
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.squareup.picasso:picasso:2.5.2'
+}
+
+def getApiKey() {
+    File propFile = file('secrets.properties');
+    if (propFile.exists()) {
+        def Properties props = new Properties()
+        props.load(new FileInputStream(propFile))
+
+        return props['MOVIE_DB_API_KEY'];
+    }
 }
