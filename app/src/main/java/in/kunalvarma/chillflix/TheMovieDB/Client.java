@@ -5,6 +5,8 @@ import com.loopj.android.http.AsyncHttpClient;
 import java.util.HashMap;
 import java.util.Map;
 
+import in.kunalvarma.chillflix.TheMovieDB.Api.Discover;
+
 public class Client {
 
     private String API_TOKEN_KEY = "api_key";
@@ -112,6 +114,20 @@ public class Client {
     public void setApiToken(ApiToken apiToken) {
         //Set the APIToken
         this.apiToken = apiToken;
+    }
+
+
+    /****************************************
+     * The Movie Database APIs
+     ***************************************/
+
+    /**
+     * Discover API Object
+     *
+     * @return Discover
+     */
+    public Discover getDiscoverApi() {
+        return new Discover(this);
     }
 
 }
