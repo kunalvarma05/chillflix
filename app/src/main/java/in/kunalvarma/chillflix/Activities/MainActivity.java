@@ -1,9 +1,11 @@
-package in.kunalvarma.chillflix;
+package in.kunalvarma.chillflix.Activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import in.kunalvarma.chillflix.R;
 
 
 public class MainActivity extends ActionBarActivity {
