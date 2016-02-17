@@ -1,10 +1,13 @@
 package in.kunalvarma.chillflix.Activities;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+
+import in.kunalvarma.chillflix.Listeners.SlideUpPanelListener;
 import in.kunalvarma.chillflix.R;
 
 
@@ -14,6 +17,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SlidingUpPanelLayout mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
+        SlideUpPanelListener slideUpPanelListener = new SlideUpPanelListener();
+        mLayout.setPanelSlideListener(slideUpPanelListener);
     }
 
     @Override
