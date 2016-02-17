@@ -50,7 +50,9 @@ public class MovieListHandler extends JsonHttpResponseHandler {
                     .create();
             Discover discover = gson.fromJson(response.toString(), Discover.class);
             ArrayList<Movie> movies = (ArrayList<Movie>) discover.getMovies();
+            this.movieListAdapter.clear();
             this.movieListAdapter.addAll(movies);
+            this.movieListAdapter.notifyDataSetChanged();
         } catch (Exception e) {
             e.printStackTrace();
         }
