@@ -1,18 +1,28 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:paddingLeft="0dp"
-              android:paddingRight="0dp"
-              android:paddingTop="0dp"
-              android:paddingBottom="0dp"
-              tools:context=".MainActivity">
+<com.sothree.slidinguppanel.SlidingUpPanelLayout
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    sothree:umanoPanelHeight="40dp"
+    sothree:umanoShadowHeight="4dp">
 
-    <fragment
+
+<fragment
         class="in.kunalvarma.chillflix.Fragments.MovieListFragment"
         android:id="@+id/movie_list_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_movie_list"/>
 
-</LinearLayout>
+    <fragment
+        class="in.kunalvarma.chillflix.Fragments.GenreListFragment"
+        android:id="@+id/genre_list_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_genre_list"/>
+
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
