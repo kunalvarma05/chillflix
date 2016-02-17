@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import in.kunalvarma.chillflix.TheMovieDB.Api.Discover;
+import in.kunalvarma.chillflix.TheMovieDB.Api.Genre;
 
 public class Client {
 
@@ -128,6 +129,16 @@ public class Client {
      */
     public Discover getDiscoverApi() {
         return new Discover(this);
+    }
+
+
+    /**
+     * Genre API Object
+     *
+     * @return Genre
+     */
+    public Genre getGenreApi() {
+        return new Genre(this);
     }
 
 }
