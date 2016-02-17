@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center|top"
+    android:orientation="vertical"
+    tools:context="in.kunalvarma.chillflix.Fragments.GenreListFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@color/red"
+        android:elegantTextHeight="true"
+        android:gravity="center|center_vertical|center_horizontal"
+        android:singleLine="true"
+        android:text="@string/genre_slider_title"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="@color/abc_primary_text_disable_only_material_dark"
+        android:textSize="16sp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        >
+        <com.anton46.collectionitempicker.CollectionPicker
+            android:id="@+id/collection_item_picker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/material_blue_grey_950"
+            app:cp_cancelIcon="@android:drawable/ic_menu_close_clear_cancel"
+            app:cp_itemBackgroundNormal="@color/background_material_dark"
+            app:cp_itemBackgroundPressed="@color/red"
+            app:cp_itemMargin="10dp"
+            app:cp_simplified="false"
+            app:cp_textPaddingBottom="15dp"
+            app:cp_textPaddingLeft="15dp"
+            app:cp_textPaddingRight="15dp"
+            app:cp_textPaddingTop="15dp"/>
+    </ScrollView>
+
+</LinearLayout>
