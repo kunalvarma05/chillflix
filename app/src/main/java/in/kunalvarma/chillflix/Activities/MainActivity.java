@@ -18,6 +18,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Set the SlideUpPanelListener
         SlidingUpPanelLayout mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
         SlideUpPanelListener slideUpPanelListener = new SlideUpPanelListener();
         mLayout.setPanelSlideListener(slideUpPanelListener);

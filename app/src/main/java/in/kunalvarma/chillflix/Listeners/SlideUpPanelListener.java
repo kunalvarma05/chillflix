@@ -1,6 +1,5 @@
 package in.kunalvarma.chillflix.Listeners;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.GridView;
 
@@ -34,13 +33,19 @@ public class SlideUpPanelListener implements SlidingUpPanelLayout.PanelSlideList
 
     @Override
     public void onPanelCollapsed(View panel) {
+        //Find the Collection Picker inside the panel view
         CollectionPicker picker = (CollectionPicker) panel.findViewById(R.id.collection_item_picker);
+
+        //Get the items checked by the user
         Map<String, Object> items = picker.getCheckedItems();
+        //Create an object with their values
+        Collection<Object> selectedGenres = items.values();
 
-        Collection<Object> selectedGenreIds = items.values();
+        //Iterator object
+        Iterator iterator = selectedGenres.iterator();
 
-        Iterator iterator = selectedGenreIds.iterator();
 
+        //Create an array with the keys
         List<String> keys = new ArrayList<String>();
 
         while (iterator.hasNext()) {
@@ -48,20 +53,23 @@ public class SlideUpPanelListener implements SlidingUpPanelLayout.PanelSlideList
             keys.add(genre.id);
         }
 
+        //Create a comma separated string from
+        //keys array for the API Request Param
         String genreIDs = Helper.implode(",", keys);
 
-
+        //Find the MovieListGridView
         GridView movieListGridView = ((GridView) panel.getRootView().findViewById(R.id.movie_list_grid_view));
+        //Get the Adapter attached to the gridview
         MovieListAdapter movieListAdapter = ((MovieListAdapter) movieListGridView.getAdapter());
 
+        //Set params for the API Request
         RequestParams params = new RequestParams();
         params.add("with_genres", genreIDs);
         params.add("sort_by", "popularity.desc");
 
+        //Init the MovieService and class updateMovies
         MovieService movieService = new MovieService();
         movieService.updateMovies(movieListAdapter, params);
-
-        Log.v("Params", params.toString());
 
     }
 

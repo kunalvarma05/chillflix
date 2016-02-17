@@ -1,7 +1,6 @@
 package in.kunalvarma.chillflix.ResponseHandlers;
 
 import android.content.Context;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.anton46.collectionitempicker.CollectionPicker;
@@ -63,7 +62,6 @@ public class GenreListHandler extends JsonHttpResponseHandler {
                 Genre genre = iterator.next();
                 String key = Integer.toString(genre.id);
                 items.add(new Item(key, genre.name.toUpperCase()));
-                Log.v("Item", key + ": " + genre.name.toUpperCase());
             }
 
             this.genreListPicker.setItems(items);

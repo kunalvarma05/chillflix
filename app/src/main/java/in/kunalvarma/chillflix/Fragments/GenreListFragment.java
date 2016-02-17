@@ -3,14 +3,11 @@ package in.kunalvarma.chillflix.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.anton46.collectionitempicker.CollectionPicker;
-import com.anton46.collectionitempicker.Item;
-import com.anton46.collectionitempicker.OnItemClickListener;
 
 import in.kunalvarma.chillflix.BuildConfig;
 import in.kunalvarma.chillflix.R;
@@ -36,15 +33,8 @@ public class GenreListFragment extends Fragment {
         //Fragment Root View
         final View rootView = inflater.inflate(R.layout.fragment_genre_list, container, false);
 
+        //Collection Picker
         CollectionPicker picker = (CollectionPicker) rootView.findViewById(R.id.collection_item_picker);
-
-        picker.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onClick(Item item, int position) {
-                Log.e("ItemPicker", item.text);
-            }
-        });
-
 
         //Initialize a new TMDB Client
         String apiKey = BuildConfig.MOVIE_DB_API_KEY;

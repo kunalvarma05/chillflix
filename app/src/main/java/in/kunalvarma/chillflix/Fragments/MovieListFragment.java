@@ -60,12 +60,14 @@ public class MovieListFragment extends Fragment {
         ApiToken apiToken = new ApiToken(apiKey);
         Client tmdbClient = new Client(apiToken);
 
+        //Send additional params
+        //along with the API Request
         RequestParams params = new RequestParams();
         params.add("sort_by", "popularity.desc");
 
+        //Init the MovieService and call updateMovies
         MovieService movieService = new MovieService();
         movieService.updateMovies(movieListAdapter, params);
-
 
         // Inflate the layout for this fragment
         return rootView;
