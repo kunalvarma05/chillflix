@@ -8,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
+import com.loopj.android.http.RequestParams;
+
 import java.util.ArrayList;
 
 import in.kunalvarma.chillflix.Adapters.MovieListAdapter;
 import in.kunalvarma.chillflix.BuildConfig;
 import in.kunalvarma.chillflix.R;
-import in.kunalvarma.chillflix.ResponseHandlers.MovieListHandler;
+import in.kunalvarma.chillflix.Services.MovieService;
 import in.kunalvarma.chillflix.TheMovieDB.ApiToken;
 import in.kunalvarma.chillflix.TheMovieDB.Client;
 import in.kunalvarma.chillflix.TheMovieDB.Model.Movie;
@@ -58,15 +60,11 @@ public class MovieListFragment extends Fragment {
         ApiToken apiToken = new ApiToken(apiKey);
         Client tmdbClient = new Client(apiToken);
 
-        //Get the Discover API through the TMDB Client
-        in.kunalvarma.chillflix.TheMovieDB.Api.Discover discoverApi = tmdbClient.getDiscoverApi();
+        RequestParams params = new RequestParams();
+        params.add("sort_by", "popularity.desc");
 
-        //Initialize and Build the Movie List Handler
-        MovieListHandler movieListHandler = new MovieListHandler();
-        movieListHandler.setAdapter(movieListAdapter);
-
-        //Execute the Get Movies API Method
-        discoverApi.getMovies(movieListHandler);
+        MovieService movieService = new MovieService();
+        movieService.updateMovies(movieListAdapter, params);
 
 
         // Inflate the layout for this fragment
